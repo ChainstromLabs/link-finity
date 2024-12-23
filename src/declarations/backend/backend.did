@@ -1,0 +1,4 @@
+service: () -> {
+    getStatusProvider: () -> (text) query;
+    save_my_profile: (text, text, text, text, text, text, text, text, vec record {setting:bool; icon:text; link:text; name:text; type_button:text}, vec record {link:text; platform:text}, vec record {icon:text; tags:text}) -> (variant {Ok:record {bio:text; verified:bool; country:text; banner_url:text; avatar_url:text; link:text; name:text; tags:vec record {icon:text; tags:text}; created_at:text; typechain:text; address:text; user_banned:bool; media_social:vec record {link:text; platform:text}; button:vec record {setting:bool; icon:text; link:text; name:text; type_button:text}}; Err:text});
+}

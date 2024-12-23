@@ -1,0 +1,47 @@
+{
+  "canisters": {
+    "ic_siwe_provider": {
+      "candid": "provider/ic_siwe/ic_siwe_provider.did",
+      "type": "custom",
+      "wasm": "provider/ic_siwe/ic_siwe_provider.wasm.gz"
+    },
+    "ic_siws_provider": {
+      "type": "custom",
+      "candid": "provider/ic_swis/ic_siws_provider.did",
+      "wasm": "provider/ic_swis/ic_siws_provider.wasm.gz"
+    },
+    "backend": {
+      "type": "azle",
+      "main": "backend/src/index.ts",
+      "custom": {
+        "experimental": true
+      },
+      "declarations": {
+        "output": "src/declarations/backend",
+        "node_compatibility": true
+      }
+    },
+    "frontend": {
+      "dependencies": ["backend"],
+      "type": "assets",
+      "source": ["dist/"]
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": "npm run --silent sources"
+    }
+  },
+  "output_env_file": ".env",
+  "version": 2,
+  "networks": {
+    "ic": {
+      "providers": ["https://ic0.app"],
+      "type": "persistent"
+    },
+    "local": {
+      "bind": "127.0.0.1:4943",
+      "type": "ephemeral"
+    }
+  }
+}
